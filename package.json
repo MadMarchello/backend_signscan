@@ -1,0 +1,22 @@
+{
+  "name": "backend_signscan",
+  "version": "0.0.1",
+  "description": "Backend for barcode scanning",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MadMarchello/backend_signscan.git"
+  },
+  "author": "MadMarchello",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MadMarchello/backend_signscan/issues"
+  },
+  "homepage": "https://github.com/MadMarchello/backend_signscan#readme",
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+}
