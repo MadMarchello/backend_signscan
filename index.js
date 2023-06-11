@@ -1,20 +1,20 @@
+import dotenv from 'dotenv/config';
 import AdminJS from 'adminjs'
 import AdminJSExpress from '@adminjs/express'
 import express from 'express'
+import sequelize from './db.js';
 
-const PORT = 3000
+const PORT = process.env.PORT || 5000
+const app = express();
 
-const start = async () => {
-  const app = express()
-
-  const admin = new AdminJS({})
-
-  const adminRouter = AdminJSExpress.buildRouter(admin)
-  app.use(admin.options.rootPath, adminRouter)
-
-  app.listen(PORT, () => {
-    console.log(`AdminJS started on http://localhost:${PORT}${admin.options.rootPath}`)
-  })
+const start = async() => {
+    try {
+        await sequelize.authenticate();
+        await sequelize.sync();
+        app.listen(PORT, () => console.log(`Server started on PORT ${PORT}`));
+    } catch (error) {
+        console.log(error);
+    }
 }
 
-start()
+start();
