@@ -1,2 +1,2 @@
-# backend_signscan
+# SignScan Backend
 Application backend for barcode scanning
