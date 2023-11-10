@@ -1,13 +1,13 @@
 import express from 'express'
 import sequelize from './db.js';
 import { Barcode } from './models/Barcodes.entity.js'
+import { Users } from './models/Users.entity.js';
 
 import AdminJS from 'adminjs'
 import AdminJSExpress from '@adminjs/express'
 import * as AdminJSSequelize from '@adminjs/sequelize'
 import { locales as AdminJSLocales } from 'adminjs'
 import * as russian_language from './locale/rus/translation.json' assert { type: "json" }
-
 const DEFAULT_ADMIN = {
     email: "admin@signcode.ru",
     password: "signcode-db_2023_#"
@@ -15,12 +15,12 @@ const DEFAULT_ADMIN = {
 
 const authenticate = async (email, password) => {
     if (email === DEFAULT_ADMIN.email && password === DEFAULT_ADMIN.password) {
-      return Promise.resolve(DEFAULT_ADMIN)
+        return Promise.resolve(DEFAULT_ADMIN)
     }
     return null
-  }
-  //todo: сделать защиту
-  // сделать кастомный дизайн
+}
+//todo: сделать защиту
+// сделать кастомный дизайн
 AdminJS.registerAdapter({
     Resource: AdminJSSequelize.Resource,
     Database: AdminJSSequelize.Database,
@@ -40,18 +40,10 @@ const start = async () => {
             resources: [Barcode],
             locale: { 
                 language: 'ru', // default language of application (also fallback)
+                localeDetection: true,
                 availableLanguages: ['en', 'ru'],
-                translation: {
-                    ru: {
-                        actions: {
-                            new: "Создать новый",
-                            edit: "Редактировать",
-                            show: "Показать",
-                            delete: "Удалить",
-                            bulkDelete: "Удалить все",
-                            list: "Список"
-                        },
-                    }
+                translations: {
+                    ru: rus
                 }
               }
         }
