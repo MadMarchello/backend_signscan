@@ -1,0 +1,37 @@
+{
+  "name": "backend_signscan",
+  "version": "0.0.1",
+  "description": "Backend for barcode scanning",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "nodemon index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MadMarchello/backend_signscan.git"
+  },
+  "author": "MadMarchello",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MadMarchello/backend_signscan/issues"
+  },
+  "homepage": "https://github.com/MadMarchello/backend_signscan#readme",
+  "dependencies": {
+    "@adminjs/design-system": "^4.0.3",
+    "@adminjs/express": "^6.0.0",
+    "@adminjs/sequelize": "^4.0.0",
+    "adminjs": "^7.0.6",
+    "cors": "^2.8.5",
+    "dotenv": "^16.1.4",
+    "express": "^4.18.2",
+    "express-formidable": "^1.2.0",
+    "express-session": "^1.17.3",
+    "pg": "^8.11.0",
+    "pg-hstore": "^2.3.4"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.22"
+  }
+}
