@@ -2,7 +2,7 @@ import sequelize from "../db.js";
 import { DataTypes } from 'sequelize';
 
 
-export const Barcode = sequelize.define('Barcode', {
+const Barcode = sequelize.define('Barcode', {
     id: {
         type: DataTypes.INTEGER,
         primaryKey: true,
@@ -16,3 +16,5 @@ export const Barcode = sequelize.define('Barcode', {
         type: DataTypes.STRING
     }
 })
+
+export default Barcode;
