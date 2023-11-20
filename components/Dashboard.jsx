@@ -6,7 +6,7 @@ const Dashboard = () => {
 //    const { translateMessage } = useTranslation()
     return (
         <div>
-
+            попытка
         </div>
     )
 }
