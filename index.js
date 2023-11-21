@@ -58,13 +58,19 @@ const start = async () => {
             locale: {
                 language: 'ru',
                 localeDetection: true,
-                availableLanguages: ['en', 'ru'],
+                availableLanguages: ['ru'],
                 translations: {
                     ru: rus
                 }
-            }
+            },
+            branding: {
+                logo: false,
+                companyName: 'Sign Code',
+                softwareBrothers: false
+            },
         }
         const admin = new AdminJS(adminOptions);
+
         admin.watch();
 
         //todo: вынести в отдельный модуль аутентификацию
