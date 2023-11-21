@@ -12,9 +12,6 @@ import AdminJSExpress from '@adminjs/express'
 import * as AdminJSSequelize from '@adminjs/sequelize'
 import * as russian_language from './locale/rus/translation.json' assert { type: "json" }
 
-import { Components } from './components/components.js';
-import { componentLoader } from './components/components.js';
-
 const DEFAULT_ADMIN = {
     email: "admin@signcode.ru",
     password: "signcode-db_2023_#"
@@ -51,26 +48,16 @@ const start = async () => {
         const adminOptions = {
             rootPath: "/admin",
             resources: [Barcode],
-            componentLoader,
-            dashboard: {
-                component: Components.Dashboard
-            },
             locale: {
                 language: 'ru',
                 localeDetection: true,
-                availableLanguages: ['ru'],
+                availableLanguages: ['en', 'ru'],
                 translations: {
                     ru: rus
                 }
-            },
-            branding: {
-                logo: false,
-                companyName: 'Sign Code',
-                softwareBrothers: false
-            },
+            }
         }
         const admin = new AdminJS(adminOptions);
-
         admin.watch();
 
         //todo: вынести в отдельный модуль аутентификацию
